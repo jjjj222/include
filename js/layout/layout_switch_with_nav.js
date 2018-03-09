@@ -11,7 +11,7 @@ export class LayoutSwitchWithNav {
         this.root = row.root;
 
         const nav = new Nav();
-        row.addFront(nav.root)
+        row.addTop(nav.root)
 
         this.switch = new LayoutSwitch(row.body, nav);
     }

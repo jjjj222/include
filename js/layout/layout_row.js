@@ -1,30 +1,31 @@
-import { set_row_container, set_main_section } from "./style.js"
+import * as layout_style from './style.js';
 
 //------------------------------------------------------------------------------
 //   LayoutRow
 //------------------------------------------------------------------------------
-export function LayoutRow(parent) {
-    this.root = document.createElement("div");
-    if (parent) {
-        parent.appendChild(this.root);
+export class LayoutRow {
+    constructor(parent) {
+        this.root = document.createElement("div");
+        if (parent) {
+            parent.appendChild(this.root);
+        }
+
+        this.root.className = "layout-row";
+        layout_style.set_row_container(this.root)
+
+        const main_section = document.createElement("div")
+        layout_style.set_row_container(main_section)
+        layout_style.set_main_section(main_section)
+        this.root.appendChild(main_section)
+
+        this.body = document.createElement("div")
+        layout_style.set_main_section(this.body)
+        main_section.appendChild(this.body)
     }
-
-    this.root.className = "layout-row";
-
-    set_row_container(this.root)
-
-    const main_section = document.createElement("div")
-    set_row_container(main_section)
-    set_main_section(main_section)
-    this.root.appendChild(main_section)
-
-    this.body = document.createElement("div")
-    set_main_section(this.body)
-    main_section.appendChild(this.body)
 }
 
 //------------------------------------------------------------------------------
-LayoutRow.prototype.addFront = function(dom) {
+LayoutRow.prototype.addTop = function(dom) {
     if (!dom) {
         dom = document.createElement("div")
     }
@@ -35,7 +36,7 @@ LayoutRow.prototype.addFront = function(dom) {
 }
 
 //------------------------------------------------------------------------------
-LayoutRow.prototype.addBack = function(dom) {
+LayoutRow.prototype.addBottom = function(dom) {
     if (!dom) {
         dom = document.createElement("div")
     }

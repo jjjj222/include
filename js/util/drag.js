@@ -31,23 +31,3 @@ export function drag(dom, mousemove_callback, mousedown_callback) {
 
     dom.addEventListener("mousedown", mousedown_fn);
 }
-
-//------------------------------------------------------------------------------
-//   backup
-//------------------------------------------------------------------------------
-//const drag_left = d3.drag()
-//    .on('drag', function() {
-//        const x = d3.mouse(this.parentNode)[0];
-
-//        // Avoid negative or really small widths
-//        const w = Math.max(5, x);
-
-//        //column.style('width', w + 'px');
-//        d3.select(resizable_div).style('width', w + 'px');
-//    })
-
-
-//d3.select(resizer)
-//    .classed("resizer", true)
-//    .style("right", 0)
-//    //.call(drag_left)
