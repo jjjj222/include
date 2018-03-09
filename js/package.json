@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "test": "jest --colors",
+    "jsdoc": "jsdoc ./layout/layout_row.js",
     "start": "jest --watch --colors --bail"
   },
   "author": "jjjj222",
