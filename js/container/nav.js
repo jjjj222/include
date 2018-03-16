@@ -1,21 +1,25 @@
 //------------------------------------------------------------------------------
 //   Nav
 //------------------------------------------------------------------------------
+/**
+ * Navvvvvvvvvvvvvvvv
+ */
+export class Nav {
+    constructor(parent, className) {
+        this.root = document.createElement("ul");
+        if (parent) {
+            parent.appendChild(this.root);
+        }
 
-export function Nav(parent, className) {
-    this.root = document.createElement("ul");
-    if (parent) {
-        parent.appendChild(this.root);
+        if (className) {
+            this.root.className = className;
+        } else {
+            this.root.className = "nav nav-tabs";
+        }
+
+        this.is_add_front = false;
+        this.is_add_close_button = false;
     }
-
-    if (className) {
-        this.root.className = className;
-    } else {
-        this.root.className = "nav nav-tabs";
-    }
-
-    this.is_add_front = false;
-    this.is_add_close_button = false;
 }
 
 //------------------------------------------------------------------------------

@@ -5,13 +5,30 @@ import { LayoutRow } from "./layout_row.js";
 //------------------------------------------------------------------------------
 //   LayoutWindow
 //------------------------------------------------------------------------------
+/**
+ * Class for creating a window-like div.
+ */
 export class LayoutWindow {
+    /**
+     * Create a window-like layout object.
+     * @param {DOM} [parent] - The parent DOM to which this layout is attached.
+     */
     constructor(parent) {
+        /**
+         * The root div of this layout.
+         * @constant
+         * @type {DOM}
+         *
+         * @example
+         * let layout_window = new LayoutWindow();
+         * parent_div.appendChild(layout_window.root);
+         */
         this.root = document.createElement("div");
         if (parent) {
             parent.appendChild(this.root);
         }
 
+        // TODO: decide which one is private/public.
         this.border_width = 2;
         this.border_color = "lightgray";
         this.min_height = 2 * this.border_width + 20;

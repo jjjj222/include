@@ -9,11 +9,11 @@ import * as layout_style from './style.js';
 export class LayoutRow {
     /**
      * Create a row-based layout object.
-     * @param {DOM} [parent] - The parent DOM that this layout is attached to.
+     * @param {DOM} [parent] - The parent DOM to which this layout is attached.
      */
     constructor(parent) {
         /**
-         * The root div of the layout.
+         * The root div of this layout.
          * @constant
          * @type {DOM}
          *
@@ -55,6 +55,9 @@ export class LayoutRow {
  * Add a DOM on the top of the layout.
  * @param {DOM} [dom] - The DOM to be added.
  * @returns {DOM} The DOM added.
+ * @example
+ * let layout_row = new LayoutRow(parent);
+ * layout_row.addTop(div);
  */
 LayoutRow.prototype.addTop = function(dom) {
     if (!dom) {
@@ -71,6 +74,9 @@ LayoutRow.prototype.addTop = function(dom) {
  * Add a DOM at the bottom of the layout.
  * @param {DOM} [dom] - The DOM to be added.
  * @returns {DOM} The DOM added.
+ * @example
+ * let layout_row = new LayoutRow(parent);
+ * layout_row.addBottom(div);
  */
 LayoutRow.prototype.addBottom = function(dom) {
     if (!dom) {

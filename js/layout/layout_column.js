@@ -4,8 +4,24 @@ import * as drag_util from "../util/drag.js";
 //------------------------------------------------------------------------------
 //   LayoutColumn
 //------------------------------------------------------------------------------
+/**
+ * Class for creating a column layout.
+ */
 export class LayoutColumn {
+    /**
+     * Create a column-based layout object.
+     * @param {DOM} [parent] - The parent DOM to which this layout is attached.
+     */
     constructor(parent) {
+        /**
+         * The root div of this layout.
+         * @constant
+         * @type {DOM}
+         *
+         * @example
+         * let layout_column = new LayoutColumn();
+         * parent_div.appendChild(layout_column.root);
+         */
         this.root = document.createElement("div");
         if (parent) {
             parent.appendChild(this.root);
@@ -19,6 +35,16 @@ export class LayoutColumn {
         layout_style.set_main_section(main_section)
         this.root.appendChild(main_section)
 
+        /**
+         * The default part of the layout.
+         * It's used for containing other divs.
+         * @constant
+         * @type {DOM}
+         *
+         * @example
+         * let layout_column = new LayoutColumn(parent);
+         * layout_column.body.appendChild(div);
+         */
         this.body = document.createElement("div")
         layout_style.set_main_section(this.body)
         main_section.appendChild(this.body)
@@ -26,6 +52,11 @@ export class LayoutColumn {
 }
 
 //------------------------------------------------------------------------------
+/**
+ * Add a DOM to the left of the layout.
+ * @param {DOM} [dom] - The DOM to be added.
+ * @returns {DOM} The DOM added.
+ */
 LayoutColumn.prototype.addLeft = function(dom) {
     if (!dom) {
         dom = document.createElement("div")
@@ -37,6 +68,11 @@ LayoutColumn.prototype.addLeft = function(dom) {
 }
 
 //------------------------------------------------------------------------------
+/**
+ * Add a DOM to the right of the layout.
+ * @param {DOM} [dom] - The DOM to be added.
+ * @returns {DOM} The DOM added.
+ */
 LayoutColumn.prototype.addRight = function(dom) {
     if (!dom) {
         dom = document.createElement("div")
@@ -48,6 +84,11 @@ LayoutColumn.prototype.addRight = function(dom) {
 }
 
 //------------------------------------------------------------------------------
+/**
+ * Add a resizable pane to the left of the layout.
+ * @param {string} [width] - The initial width of the pane in CSS Length Unit.
+ * @returns {DOM} The DOM which is used for containing other divs.
+ */
 LayoutColumn.prototype.addLeftResizable = function(width) {
     const resizable_div = document.createElement("div");
     resizable_div.style.position = "relative";
@@ -81,6 +122,11 @@ LayoutColumn.prototype.addLeftResizable = function(width) {
 }
 
 //------------------------------------------------------------------------------
+/**
+ * Add a resizable pane to the right of the layout.
+ * @param {string} [width] - The initial width of the pane in CSS Length Unit.
+ * @returns {DOM} The DOM which is used for containing other divs.
+ */
 LayoutColumn.prototype.addRightResizable = function(width) {
     const resizable_div = document.createElement("div");
     resizable_div.style.position = "relative";
