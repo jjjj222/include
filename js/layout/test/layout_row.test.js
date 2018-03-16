@@ -60,9 +60,9 @@ describe('member functions', () => {
         layout = new LayoutRow()
     });
 
-    describe('addFront(DOM)', () => {
+    describe('addTop(DOM)', () => {
         test('undefined DOM', () => {
-            const result = layout.addFront();
+            const result = layout.addTop();
 
             expect(result.nodeName).toBe("DIV");
             expect(layout.root.firstChild).toBe(result);
@@ -70,16 +70,16 @@ describe('member functions', () => {
 
         test('normal DOM', () => {
             const dom = document.createElement("xxx")
-            const result = layout.addFront(dom);
+            const result = layout.addTop(dom);
 
             expect(result).toBe(dom);
             expect(layout.root.firstChild).toBe(dom);
         })
     });
 
-    describe('addBack(DOM)', () => {
+    describe('addBottom(DOM)', () => {
         test('undefined DOM', () => {
-            const result = layout.addBack();
+            const result = layout.addBottom();
 
             expect(result.nodeName).toBe("DIV");
             expect(layout.root.lastChild).toBe(result);
@@ -87,7 +87,7 @@ describe('member functions', () => {
 
         test('normal DOM', () => {
             const dom = document.createElement("xxx")
-            const result = layout.addBack(dom);
+            const result = layout.addBottom(dom);
 
             expect(result).toBe(dom);
             expect(layout.root.lastChild).toBe(dom);

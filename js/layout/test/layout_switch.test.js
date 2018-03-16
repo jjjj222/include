@@ -73,10 +73,10 @@ describe('member functions', () => {
         });
     });
 
-    test('_createDiv(DOM)', () => {
+    test('_createNewTab(DOM)', () => {
         const dom = document.createElement("div")
 
-        const return_value = layout._createDiv(dom);
+        const return_value = layout._createNewTab(dom);
 
         expect(return_value.nodeName).toBe("DIV");
         expect(return_value.style.boxSizing)      .toBe("border-box");
