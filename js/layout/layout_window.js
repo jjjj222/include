@@ -262,7 +262,7 @@ LayoutWindow.prototype._setupHeader = function() {
     this._header.classList.add("layout-window-header");
 
     //this.root.appendChild(this._header);
-    this.row.addFront(this._header);
+    this.row.addTop(this._header);
 
     this._header_text_node = document.createTextNode("");
     this._header.appendChild(this._header_text_node);

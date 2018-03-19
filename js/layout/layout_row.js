@@ -64,6 +64,7 @@ LayoutRow.prototype.addTop = function(dom) {
         dom = document.createElement("div")
     }
 
+    dom.style.flexShrink = "0";
     this.root.insertBefore(dom, this.root.firstChild)
 
     return dom
@@ -83,6 +84,7 @@ LayoutRow.prototype.addBottom = function(dom) {
         dom = document.createElement("div")
     }
 
+    dom.style.flexShrink = "0";
     this.root.appendChild(dom)
 
     return dom

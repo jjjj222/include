@@ -115,12 +115,24 @@ function NavItem(li, nav) {
     this.nav = nav;
 }
 
+NavItem.prototype.isActive = function() {
+    return this.li.firstChild.classList.contains("active");
+}
+
 //------------------------------------------------------------------------------
 NavItem.prototype.setActive = function(is_active = true) {
     if (is_active) {
         this.li.firstChild.classList.add("active");
     } else {
         this.li.firstChild.classList.remove("active");
+    }
+}
+
+NavItem.prototype.toggleActive = function() {
+    if (this.li.firstChild.classList.contains("active")) {
+        this.li.firstChild.classList.remove("active");
+    } else {
+        this.li.firstChild.classList.add("active");
     }
 }
 
