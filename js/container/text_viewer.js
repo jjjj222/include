@@ -1,32 +1,39 @@
-import { set_fullsize_container } from "../layout/style.js";
-//import * as d3 from "d3";
+import * as layout_style from '../layout/style.js';
 
 //------------------------------------------------------------------------------
 //   TextViewer
 //------------------------------------------------------------------------------
-export function TextViewer(parent) {
-    this.root = document.createElement("div");
-    if (parent) {
-        parent.appendChild(this.root);
+export class TextViewer {
+    constructor(parent) {
+        this.root = document.createElement("div");
+        if (parent) {
+            parent.appendChild(this.root);
+        }
+
+        this.root.classList.add("text-viewer");
+        layout_style.set_fullsize_container(this.root)
+        this.root.style.overflow = "auto";
+
+        this._mode= "pre"
     }
+}
 
-    this.root.classList.add("text-viewer");
-    set_fullsize_container(this.root)
-    this.root.style.overflow = "auto";
-
-    //d3.select(this.root)
-    //    .classed("fullsize-container", true)
-    //    .style("overflow", "auto")
+TextViewer.prototype.useMassMode = function() {
+    this._mode = "mass";
 }
 
 TextViewer.prototype.setText = function(text) {
     this.root.innerHTML = "";
-    const pre = document.createElement("pre");
+    let tag = "pre";
+    if (this._mode == "mass") {
+        tag = "p";
+    }
+
+    const pre = document.createElement(tag);
     pre.textContent = text;
     this.root.append(pre);
-    //const container = d3.select(this.root);
 
-    ////container.html("");
-    //container.append("pre")
-    //    .text(text)
+    if (this._mode == "mass") {
+        pre.style.wordBreak = "break-all";
+    }
 }

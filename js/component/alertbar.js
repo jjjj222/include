@@ -17,41 +17,45 @@ Alertbar.prototype.reset = function() {
 
 //------------------------------------------------------------------------------
 Alertbar.prototype.addWarning = function(text, title="Warning!") {
-    this._addInfo("alert-warning", title, text);
+    this._addMessage("alert-warning", title, text);
 }
 
 //------------------------------------------------------------------------------
 Alertbar.prototype.addError = function(text, title="Error!") {
-    this._addInfo("alert-danger", title, text);
+    this._addMessage("alert-danger", title, text);
 }
 
+//------------------------------------------------------------------------------
+Alertbar.prototype.addInfo = function(text, title="Info!") {
+    this._addMessage("alert-info", title, text);
+}
 
 //------------------------------------------------------------------------------
-Alertbar.prototype._addInfo = function(type, title, text) {
-    const info = this._createInfobar();
-    info.classList.add(type);
-    this.root.appendChild(info);
+Alertbar.prototype._addMessage = function(type, title, text) {
+    const message_bar = this._createMessageBar();
+    message_bar.classList.add(type);
+    this.root.appendChild(message_bar);
 
     const strong = document.createElement("strong");
     strong.textContent = title;
-    info.appendChild(strong);
+    message_bar.appendChild(strong);
 
     const textNode = document.createTextNode(" " + text);
-    info.appendChild(textNode);
+    message_bar.appendChild(textNode);
 }
 
 //------------------------------------------------------------------------------
-Alertbar.prototype._createInfobar = function() {
-    const info = document.createElement("div");
+Alertbar.prototype._createMessageBar = function() {
+    const message_bar = document.createElement("div");
 
-    info.classList.add("alert");
-    info.classList.add("mb-0");
-    info.setAttribute("role", "alert");
+    message_bar.classList.add("alert");
+    message_bar.classList.add("mb-0");
+    message_bar.setAttribute("role", "alert");
 
     const button = document.createElement("button");
     button.classList.add("close");
     button.type = "button";
-    info.appendChild(button);
+    message_bar.appendChild(button);
 
     const x = document.createElement("span");
     x.setAttribute("aria-hidden", true);
@@ -59,8 +63,8 @@ Alertbar.prototype._createInfobar = function() {
     button.appendChild(x);
 
     x.addEventListener("click", () => {
-        this.root.removeChild(info);
+        this.root.removeChild(message_bar);
     })
 
-    return info;
+    return message_bar;
 }

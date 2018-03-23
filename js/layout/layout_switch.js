@@ -1,4 +1,5 @@
 import * as layout_style from './style.js';
+import * as dom_util from '../util/dom.js';
 
 //------------------------------------------------------------------------------
 //   LayoutSwitch
@@ -77,6 +78,14 @@ LayoutSwitch.prototype.add = function(dom, label) {
         return display_tab_and_active_nav_fn.bind(this, item);
     } else {
         return display_tab_fn; // TODO: not tested yet.
+    }
+}
+
+//------------------------------------------------------------------------------
+LayoutSwitch.prototype.clear = function() {
+    dom_util.remove_all_child(this.root);
+    if (this._binded_nav) {
+        this._binded_nav.reset();
     }
 }
 
