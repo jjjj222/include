@@ -37,10 +37,6 @@ export class LayoutWindow {
         this._setupResizer();
 
         this.root.style.position = "absolute";
-        //this.root.style.width = "25%";
-        //this.root.style.height = "45%";
-        //this.root.style.top = "20%";
-        //this.root.style.left = "20%";
         this.root.style.top = "0px";
         this.root.style.left = "0px";
         this.root.style.margin = "0px";
@@ -58,7 +54,7 @@ export class LayoutWindow {
         // move
         this._setupHeader();
 
-        this.root.addEventListener("click", event => {
+        this._header.addEventListener("mousedown", event => {
             event.stopPropagation();
             this.moveToFront();
         })
@@ -311,6 +307,10 @@ LayoutWindow.prototype._setupHeaderCloseButton = function() {
     x.style.cursor = "pointer";
     x.innerHTML = "&times;";
     button.appendChild(x);
+
+    x.addEventListener("mousedown", (e) => {
+        e.stopPropagation();
+    })
 
     x.addEventListener("click", (e) => {
         e.stopPropagation();
