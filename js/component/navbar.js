@@ -82,7 +82,7 @@ function FileInputForm(text, callback) {
     input.type = "file"
     btn.appendChild(input);
 
-    const fn = (e) => {
+    const onchange_fn = (e) => {
         const file = e.target.files[0];
         if (!file) {
             return;
@@ -92,7 +92,10 @@ function FileInputForm(text, callback) {
         callback(file);
     }
 
-    input.addEventListener('change', fn, false);
+    input.addEventListener('change', onchange_fn);
+    input.addEventListener('click', () => {
+        input.value = null;
+    })
 
     input.title = " ";
     input.style.position = "absolute";
