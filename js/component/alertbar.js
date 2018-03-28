@@ -17,22 +17,22 @@ Alertbar.prototype.reset = function() {
 
 //------------------------------------------------------------------------------
 Alertbar.prototype.addWarning = function(text, title="Warning!") {
-    this._addMessage("alert-warning", title, text);
+    return this._addMessage("alert-warning", title, text);
 }
 
 //------------------------------------------------------------------------------
 Alertbar.prototype.addError = function(text, title="Error!") {
-    this._addMessage("alert-danger", title, text);
+    return this._addMessage("alert-danger", title, text);
 }
 
 //------------------------------------------------------------------------------
 Alertbar.prototype.addInfo = function(text, title="Info!") {
-    this._addMessage("alert-info", title, text);
+    return this._addMessage("alert-info", title, text);
 }
 
 //------------------------------------------------------------------------------
 Alertbar.prototype._addMessage = function(type, title, text) {
-    const message_bar = this._createMessageBar();
+    const {message_bar, close_fn} = this._createMessageBar();
     message_bar.classList.add(type);
     this.root.appendChild(message_bar);
 
@@ -42,6 +42,8 @@ Alertbar.prototype._addMessage = function(type, title, text) {
 
     const textNode = document.createTextNode(" " + text);
     message_bar.appendChild(textNode);
+
+    return close_fn;
 }
 
 //------------------------------------------------------------------------------
@@ -51,6 +53,7 @@ Alertbar.prototype._createMessageBar = function() {
     message_bar.classList.add("alert");
     message_bar.classList.add("mb-0");
     message_bar.setAttribute("role", "alert");
+    message_bar.style.borderRadius = "0";
 
     const button = document.createElement("button");
     button.classList.add("close");
@@ -62,9 +65,11 @@ Alertbar.prototype._createMessageBar = function() {
     x.innerHTML = "&times;";
     button.appendChild(x);
 
-    x.addEventListener("click", () => {
+    const close_fn = () => {
         this.root.removeChild(message_bar);
-    })
+    }
 
-    return message_bar;
+    x.addEventListener("click", close_fn)
+
+    return {message_bar, close_fn};
 }

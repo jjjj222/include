@@ -118,15 +118,6 @@ export function on(event_name, callback) {
 }
 
 //------------------------------------------------------------------------------
-export function pad(d) {
-    if (d < 10) {
-        return '0' + d;
-    } else {
-        return d;
-    }
-}
-
-//------------------------------------------------------------------------------
 export function merge_bbox(bboxs) {
     let x_min = bboxs[0].x;
     let x_max = bboxs[0].x + bboxs[0].width;
