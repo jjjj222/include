@@ -68,6 +68,7 @@ Nav.prototype._createLi = function(label, close_callback) {
     a.classList.add("nav-link");
     a.textContent = label;
     a.style.cursor = "pointer";
+    a.style.userSelect = "none";
     li.appendChild(a);
 
     //a.style.borderRadius = 0; // TODO

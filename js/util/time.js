@@ -11,7 +11,7 @@ export function pad(d, n = 2) {
 export function timestamp() {
     const now = new Date(Date.now());
     const year = now.getFullYear();
-    const month = pad(now.getMonth());
+    const month = pad(now.getMonth() + 1);
     const day = pad(now.getDate());
     const hour = pad(now.getHours());
     const minute = pad(now.getMinutes());

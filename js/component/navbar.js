@@ -54,6 +54,7 @@ function NavbarBrand(text, href) {
     this.root.classList.add("navbar-brand")
     this.root.href = href
     this.root.textContent = text
+    this.root.style.userSelect = "none";
 }
 
 //------------------------------------------------------------------------------
