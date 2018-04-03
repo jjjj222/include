@@ -26,6 +26,11 @@ Toolbar.prototype.addButton = function(label, callback) {
     this.form.appendChild(btn.root);
 }
 
+Toolbar.prototype.addFileInputButton = function(label, callback) {
+    const input = new FormFileInput(label, callback);
+    this.form.appendChild(input.root);
+}
+
 //------------------------------------------------------------------------------
 //   FomrObj
 //------------------------------------------------------------------------------
@@ -45,14 +50,70 @@ class FormButton extends FormObj {
         this.root = document.createElement("button");
         this.root.type = "button";
 
-        this.root.style.marginLeft = this.marginLeft;
+        //this.root.style.marginLeft = this.marginLeft;
 
         this.root.textContent = label;
         this.root.addEventListener('click', event => {
             event.stopPropagation();
 
-            console.log("QQ");
+            callback();
         })
+    }
+}
+
+//------------------------------------------------------------------------------
+//   
+//------------------------------------------------------------------------------
+class FormFileInput extends FormObj {
+    constructor(label, callback) {
+        super();
+        //this.root = document.createElement("form");
+        //this.root.className = "form-inline";
+
+        //const label = document.createElement("label");
+        //label.classList.add("navbar-text");
+        //label.textContent = "No file chosen";
+        //label.style.marginRight = "10px";
+        ////this.root.appendChild(label);
+        //this.root.appendChild(label);
+
+        const btn = document.createElement("span");
+        //btn.classList.add("btn");
+        //btn.classList.add("btn-outline-light");
+        btn.textContent = label;
+        btn.style.overflow = "hidden";
+        btn.style.position = "relative";
+        //this.root.appendChild(btn);
+        this.root = btn;
+
+
+        const input = document.createElement("input");
+        input.type = "file"
+        btn.appendChild(input);
+
+        const onchange_fn = (e) => {
+            const file = e.target.files[0];
+            if (!file) {
+                return;
+            }
+
+            //label.textContent = file.name;
+            callback(file);
+        }
+
+        input.addEventListener('change', onchange_fn);
+        input.addEventListener('click', () => {
+            input.value = null;
+        })
+
+        input.title = " ";
+        input.style.position = "absolute";
+        input.style.top = "0px";
+        input.style.right = "0px";
+        input.style.minWidth = "100%";
+        input.style.minHeight = "100%";
+        input.style.outline = "none";
+        input.style.opacity = "0";
     }
 }
 

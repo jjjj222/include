@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const TimeObj = require("../../util/time/time_obj.js");
+const TimeObj = require("../util/time/time_obj.js");
 const time_obj = new TimeObj();
 const fs = require('fs');
 
