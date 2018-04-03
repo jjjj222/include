@@ -17,10 +17,6 @@ export class Stopwatch {
     get now() {
         return this.timer.now;
     }
-
-    //get time_str() {
-    //    return this.timer.now.toString();
-    //}
 }
 
 //------------------------------------------------------------------------------
