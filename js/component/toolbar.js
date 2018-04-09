@@ -77,9 +77,10 @@ class FormFileInput extends FormObj {
         ////this.root.appendChild(label);
         //this.root.appendChild(label);
 
-        const btn = document.createElement("span");
+        const btn = document.createElement("button");
+        //const btn = document.createElement("span");
         //btn.classList.add("btn");
-        //btn.classList.add("btn-outline-light");
+        //btn.classList.add("btn-primary");
         btn.textContent = label;
         btn.style.overflow = "hidden";
         btn.style.position = "relative";

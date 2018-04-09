@@ -85,18 +85,6 @@ export function brewserDetection() {
 }
 
 //------------------------------------------------------------------------------
-export function isChrome() {
-    const is_chrome = !!window.chrome && !!window.chrome.webstore;
-
-    const sUsrAg = navigator.userAgent;
-    if(sUsrAg.indexOf("Chrome") > -1 && is_chrome) {
-        return true;
-    }
-
-    return false;
-}
-
-//------------------------------------------------------------------------------
 export function set_super(obj, function_names) {
     const prototype = obj.__proto__.__proto__;
     obj.super = {};
