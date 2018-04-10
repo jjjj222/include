@@ -5,7 +5,7 @@ import { Polygon } from './polygon.js';
 import { TriangleRight } from './triangle_right.js';
 import { TrapezoidRight } from './trapezoid_right.js';
 
-import * as util from '../util/util.js';
+import * as event_util from '../util/event.js';
 //------------------------------------------------------------------------------
 //   ShapeWithText
 //------------------------------------------------------------------------------
@@ -130,4 +130,4 @@ ShapeWithText.prototype._setShape_trapezoid = function() {
 }
 
 //------------------------------------------------------------------------------
-ShapeWithText.prototype.on = util.on;
+ShapeWithText.prototype.on = event_util.on;

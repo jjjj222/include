@@ -1,6 +1,6 @@
 import { xmlns } from './xmlns.js';
 
-import * as util from '../util/util.js';
+import * as event_util from '../util/event.js';
 //------------------------------------------------------------------------------
 //   SvgObj
 //------------------------------------------------------------------------------
@@ -57,4 +57,4 @@ SvgObj.prototype.toFront = function() {
 }
 
 //------------------------------------------------------------------------------
-SvgObj.prototype.on = util.on;
+SvgObj.prototype.on = event_util.on;

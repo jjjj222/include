@@ -6,11 +6,10 @@ import * as class_util from "../util/class.js";
 export class GraphBaseObj {
     constructor(id) {
         class_util.set_readonly(this, 'id', id);
-
-        this.data = null;
     }
 }
 
+//------------------------------------------------------------------------------
 GraphBaseObj.prototype.isNode = function() {
     return false;
 }

@@ -85,25 +85,25 @@ export function brewserDetection() {
 }
 
 //------------------------------------------------------------------------------
-export function set_super(obj, function_names) {
-    const prototype = obj.__proto__.__proto__;
-    obj.super = {};
-
-    if (! function_names) {
-        function_names = Object.keys(prototype);
-    }
-
-    function_names.forEach(key => {
-        obj.super[key] = prototype[key].bind(obj);
-    })
-}
+//export function set_super(obj, function_names) {
+//    const prototype = obj.__proto__.__proto__;
+//    obj.super = {};
+//
+//    if (! function_names) {
+//        function_names = Object.keys(prototype);
+//    }
+//
+//    function_names.forEach(key => {
+//        obj.super[key] = prototype[key].bind(obj);
+//    })
+//}
 
 //------------------------------------------------------------------------------
-export function on(event_name, callback) {
-    this.root.addEventListener(event_name, (event) => {
-        callback(event, this);
-    });
-}
+//export function on(event_name, callback) {
+//    this.root.addEventListener(event_name, (event) => {
+//        callback(event, this);
+//    });
+//}
 
 //------------------------------------------------------------------------------
 export function merge_bbox(bboxs) {
