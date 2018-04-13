@@ -29,6 +29,10 @@ Group.prototype.has = function(obj) {
     return this.objs.has(obj);
 }
 
+Group.prototype.empty = function() {
+    return this.objs.size == 0;
+}
+
 //------------------------------------------------------------------------------
 Group.prototype.forEach = function(callback) {
     this.objs.forEach(callback);
