@@ -49,6 +49,7 @@ class FormButton extends FormObj {
 
         this.root = document.createElement("button");
         this.root.type = "button";
+        this.root.style.userSelect = "none";
 
         //this.root.style.marginLeft = this.marginLeft;
 
@@ -86,6 +87,7 @@ class FormFileInput extends FormObj {
         btn.style.position = "relative";
         //this.root.appendChild(btn);
         this.root = btn;
+        this.root.style.userSelect = "none";
 
 
         const input = document.createElement("input");

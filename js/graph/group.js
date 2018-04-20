@@ -24,6 +24,10 @@ Group.prototype.remove = function(obj) {
     return this.objs.delete(obj);
 }
 
+Group.prototype.clear = function() {
+    this.objs.clear();
+}
+
 //------------------------------------------------------------------------------
 Group.prototype.has = function(obj) {
     return this.objs.has(obj);
@@ -31,6 +35,11 @@ Group.prototype.has = function(obj) {
 
 Group.prototype.empty = function() {
     return this.objs.size == 0;
+}
+
+//------------------------------------------------------------------------------
+Group.prototype.size = function() {
+    return this.objs.size;
 }
 
 //------------------------------------------------------------------------------

@@ -12,7 +12,7 @@ export class Graph {
     constructor() {
         this.nodes = [];
         this.edges = [];
-        this.groups = [];
+        this._groups = [];
         this.id_to_node = {};
         this.id_to_edge = {};
         this.id_to_group = {};
@@ -54,11 +54,11 @@ Graph.prototype.addEdge = function(source_node, target_node) {
 }
 
 Graph.prototype.addGroup = function(GroupType = this.GroupType) {
-    const new_id = "g" + this.groups.length;
+    const new_id = "g" + this._groups.length;
 
     const new_group = new GroupType(new_id);
 
-    this.groups.push(new_group);
+    this._groups.push(new_group);
     this.id_to_group[new_id] = new_group;
     this.id_to_obj[new_id] = new_group;
     return new_group;
