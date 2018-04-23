@@ -10,7 +10,11 @@ export class Button {
         this.root.type = 'button';
         this.root.textContent = text;
         this.root.classList.add('btn');
-        this.root.classList.add('btn-primary');
+        //this.root.classList.add('btn-primary');
+    }
+
+    set borderRadius(val) {
+        this.root.style.borderRadius = val;
     }
 }
 
