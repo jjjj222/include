@@ -57,18 +57,23 @@ TextDisplay.prototype.write = function(text) {
 }
 
 //------------------------------------------------------------------------------
-TextDisplay.prototype.print = function(text) {
-    this._addNewLine(text);
-    this._removeHistory();
-    this._scrollToBottom();
+//TextDisplay.prototype.print = function(text) {
+//    this._addNewLine(text);
+//    this._removeHistory();
+//    this._scrollToBottom();
+//}
+
+//------------------------------------------------------------------------------
+TextDisplay.prototype.println = function(text) {
+    this.write(text + '\n');
 }
 
 //------------------------------------------------------------------------------
-TextDisplay.prototype._addNewLine = function(text = "") {
+TextDisplay.prototype._addNewLine = function() {
     const line = document.createElement("p");
     line.style.margin = "0";
     line.style.padding = "0";
-    line.textContent = text;
+    //line.textContent = text;
 
     this.root.append(line);
 }

@@ -18,5 +18,5 @@ export class Logger {
 Logger.prototype.log = function(text) {
     const timestamp = `(${time_util.timestamp()})`;
     const line = `${timestamp} - ${text}`;
-    this.text_display.print(line);
+    this.text_display.println(line);
 }

@@ -17,6 +17,7 @@ export class InputGroup {
         this.root.appendChild(this._prepend);
 
         this.input = document.createElement('input');
+        //this.input = document.createElement('textarea');
         this.input.classList.add('form-control');
         this.root.appendChild(this.input);
     }
