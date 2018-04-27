@@ -20,7 +20,7 @@ export class Button {
     }
 
     /**
-     * The border-radius of this button.
+     * The border-radius of this button. (setter only for now)
      * @type {string}
      */
     set borderRadius(val) {
