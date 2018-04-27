@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "test": "jest --colors",
-    "jsdoc": "jsdoc ./layout/*.js ./container/*.js -p",
+    "jsdoc": "jsdoc ./layout/*.js ./container/*.js ./bootstrap/*.js -p",
     "start": "jest --watch --colors --bail"
   },
   "author": "jjjj222",
