@@ -19,3 +19,14 @@ export class NameUsedError extends Error {
         this.name = 'NameUsedError';
     }
 }
+
+//------------------------------------------------------------------------------
+//   NameUsedError
+//------------------------------------------------------------------------------
+export class ObjNotFoundError extends Error {
+    constructor(...args) {
+        super(...args);
+
+        this.name = 'ObjNotFoundError';
+    }
+}
