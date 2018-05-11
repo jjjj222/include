@@ -9,15 +9,15 @@ export class Node extends GraphBaseObj {
         this.inputs = [];
         this.outputs = [];
 
-        this.x = 0;
-        this.y = 0;
-        this.width = 0;
-        this.height = 0;
+        //this.x = 0;
+        //this.y = 0;
+        //this.width = 0;
+        //this.height = 0;
     }
 
-    get port_id() {
-        return "p" + this.id;
-    }
+    //get port_id() {
+    //    return "p" + this.id;
+    //}
 
     //get bbox() {
     //    return {
@@ -57,20 +57,20 @@ Node.prototype.getOutputEdge = function(dst_id) {
 }
 
 //------------------------------------------------------------------------------
-Node.prototype.toElk = function() {
-    return {
-        "id": this.id,
-        "width": this.width,
-        "height": this.height,
-        "ports" : [
-            { "id": this.port_id }
-        ]
-    }
-}
-
-Node.prototype.readElk = function(elk) {
-    this.width = elk.width;
-    this.height = elk.height;
-    this.x = elk.x;
-    this.y = elk.y;
-}
+//Node.prototype.toElk = function() {
+//    return {
+//        "id": this.id,
+//        "width": this.width,
+//        "height": this.height,
+//        "ports" : [
+//            { "id": this.port_id }
+//        ]
+//    }
+//}
+//
+//Node.prototype.readElk = function(elk) {
+//    this.width = elk.width;
+//    this.height = elk.height;
+//    this.x = elk.x;
+//    this.y = elk.y;
+//}

@@ -50,7 +50,7 @@ describe('member functions', () => {
         expect(e.target).toBe(n1);
     });
 
-    describe('getBBox()', () => {
+    xdescribe('getBBox()', () => {
         test('normal', () => {
             const n0 = graph.addNode();
             const n1 = graph.addNode();
@@ -107,7 +107,7 @@ describe('member functions', () => {
         });
     });
 
-    test('toElk()', () => {
+    xtest('toElk()', () => {
         const n0 = graph.addNode();
         const n1 = graph.addNode();
         const e = graph.addEdge(n0, n1);
@@ -157,7 +157,7 @@ describe('member functions', () => {
         });
     });
 
-    test('readElk(json)', () => {
+    xtest('readElk(json)', () => {
         const n0 = graph.addNode();
         const n1 = graph.addNode();
         const e = graph.addEdge(n0, n1);

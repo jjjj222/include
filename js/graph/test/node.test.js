@@ -29,7 +29,7 @@ describe('member functions', () => {
         expect(node.id).toBe("id");
     });
 
-    test('get port_id()', () => {
+    xtest('get port_id()', () => {
         expect(node.port_id).toBe("pid");
     });
 
@@ -47,7 +47,7 @@ describe('member functions', () => {
         expect(node.outputs).toContain(mock_edge);
     });
 
-    test('toElk()', () => {
+    xtest('toElk()', () => {
         expect(node.toElk()).toEqual({
             id: "id",
             width: 10,
@@ -60,7 +60,7 @@ describe('member functions', () => {
         })
     });
 
-    test('readElk(json)', () => {
+    xtest('readElk(json)', () => {
         const elk_json = {
             width: 30,
             height: 40,
