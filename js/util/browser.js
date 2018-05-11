@@ -7,5 +7,9 @@ export function isChrome() {
         return true;
     }
 
+    if (/HeadlessChrome/.test(navigator.userAgent)) {
+        return true;
+    }
+
     return false;
 }

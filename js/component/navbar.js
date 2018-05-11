@@ -12,6 +12,8 @@ export function Navbar(parent) {
     this.root.classList.add("navbar-dark");
     this.root.classList.add("navbar-custom");
 
+    this.root.dataset.testId = "navbar";
+
     this.left = document.createElement("div");
     this.root.appendChild(this.left);
 
@@ -63,6 +65,8 @@ function NavbarBrand(text, href) {
 function FileInputForm(text, callback) {
     this.root = document.createElement("form");
     this.root.className = "form-inline";
+
+    this.root.dataset.testId = "browse-file-input";
 
     const label = document.createElement("label");
     label.classList.add("navbar-text");
