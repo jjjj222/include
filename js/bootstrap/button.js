@@ -20,7 +20,8 @@ export class Button extends BootstrapObj {
         this.root.textContent = text;
         this.root.classList.add('btn');
 
-        this.root.style.userSelect = "none";
+        //this.root.style.userSelect = "none";
+        this.setNoSelect();
     }
 
     ///**

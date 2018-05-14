@@ -1,19 +1,18 @@
-import { BootstrapObj } from './base_obj.js';
+import { BootstrapObj } from '../base_obj.js';
 
 //------------------------------------------------------------------------------
-//   FormInput
+//   TextInput
 //------------------------------------------------------------------------------
-export class FormInput extends BootstrapObj {
+export class TextInput extends BootstrapObj {
     constructor() {
         super('input');
 
-        //this.root = document.createElement('input');
         this.root.type = 'text';
         this.root.classList.add('form-control');
     }
 }
 
 //------------------------------------------------------------------------------
-FormInput.prototype.setSmall = function() {
+TextInput.prototype.setSmall = function() {
     this.root.classList.add('form-control-sm');
 }

@@ -29,4 +29,9 @@ BootstrapObj.prototype.setNoHighlight = function() {
 }
 
 //------------------------------------------------------------------------------
+BootstrapObj.prototype.setNoSelect = function() {
+    this.root.style.userSelect = "none";
+}
+
+//------------------------------------------------------------------------------
 BootstrapObj.prototype.on = event_util.on;
