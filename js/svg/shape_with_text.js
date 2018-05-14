@@ -1,4 +1,5 @@
-import { Rect, G } from './svg.js';
+import { G } from './g.js';
+import { Rect } from './rect.js';
 import { Text } from './text.js';
 import { BoundedText } from './bounded_text.js';
 import { Polygon } from './polygon.js';

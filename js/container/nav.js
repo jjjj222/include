@@ -19,6 +19,8 @@ export class Nav {
 
         this.is_add_front = false;
         this.is_add_close_button = false;
+
+        this.borderRadius = undefined;
     }
 }
 
@@ -63,6 +65,7 @@ Nav.prototype.resetAllActive = function() {
 Nav.prototype._createLi = function(label, close_callback) {
     const li = document.createElement("li");
     li.classList.add("nav-item");
+    //li.style.borderRadius = 0; // TODO
 
     const a = document.createElement("a");
     a.classList.add("nav-link");
@@ -71,7 +74,10 @@ Nav.prototype._createLi = function(label, close_callback) {
     a.style.userSelect = "none";
     li.appendChild(a);
 
-    //a.style.borderRadius = 0; // TODO
+    if (this.borderRadius !== undefined) {
+        a.style.borderRadius = this.borderRadius;
+    }
+
     if (this.is_add_close_button) {
         const button = document.createElement("button");
         button.classList.add("close");

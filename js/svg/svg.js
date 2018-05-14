@@ -1,11 +1,14 @@
-import { Rect } from './rect.js';
-import { Path } from './path.js';
-import { Text } from './text.js';
-import { G } from './g.js';
+import { SvgObj } from './base_obj.js';
 
-export {
-    Rect,
-    Path,
-    Text,
-    G,
+//------------------------------------------------------------------------------
+//   Svg
+//------------------------------------------------------------------------------
+export class Svg extends SvgObj {
+    constructor(parent) {
+        super('svg');
+
+        if (parent) {
+            parent.appendChild(this.root);
+        }
+    }
 }

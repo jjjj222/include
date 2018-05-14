@@ -47,7 +47,7 @@ SvgObj.prototype.forEach = function(callback) {
     }
 }
 
-
+//------------------------------------------------------------------------------
 SvgObj.prototype.transform = function(x, y, scale) {
     this.root.setAttributeNS(null, 'transform', "translate(" + x + "," + y + ")");
 }
