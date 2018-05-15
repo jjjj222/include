@@ -1,5 +1,6 @@
 import { Button } from '../bootstrap/button.js';
 import { Label } from '../bootstrap/label.js';
+import { Form } from '../bootstrap/form/form.js';
 import { TextInput } from '../bootstrap/form/text_input.js';
 import { Checkbox } from '../bootstrap/form/checkbox.js';
 
@@ -15,9 +16,35 @@ export class Toolbar {
 
         this.root.classList.add("toolbar");
 
-        this.form = document.createElement('form');
-        this.form.classList.add('form-inline');
-        this.root.appendChild(this.form);
+        const form = document.createElement('form');
+        form.classList.add('form-inline');
+        this.root.appendChild(form);
+
+        this.left_group = document.createElement('div');
+        this.left_group.classList.add('form-group');
+        form.appendChild(this.left_group);
+
+        this.right_group = document.createElement('div');
+        this.right_group.classList.add('form-group');
+        this.right_group.classList.add('ml-auto');
+        form.appendChild(this.right_group);
+
+        //this.form_right = document.createElement('form');
+        //this.form_right.classList.add('form-inline');
+        //this.form_right.classList.add('ml-auto');
+        //this.root.appendChild(this.form_right);
+
+        this.form = this.left_group
+        //this.align_right = false;
+    }
+}
+
+//------------------------------------------------------------------------------
+Toolbar.prototype.setAppendRight = function(val = true) {
+    if (val) {
+        this.form = this.right_group;
+    } else {
+        this.form = this.left_group;
     }
 }
 
@@ -49,7 +76,8 @@ Toolbar.prototype.addFileInputButton = function(label, callback) {
     this.form.appendChild(input.root);
 }
 
-Toolbar.prototype.addInput = function(callback) {
+//Toolbar.prototype.addInput = function(callback) {
+Toolbar.prototype.addInput = function() {
     const input = new TextInput();
     input.setSmall();
     input.setNoRadius();
@@ -57,10 +85,26 @@ Toolbar.prototype.addInput = function(callback) {
 
     this.form.appendChild(input.root);
 
-    input.on('input', () => {
-        //console.log(input.root.value);
-        callback(input.root.value);
-    })
+    //input.on('input', () => {
+    //    //console.log(input.root.value);
+    //    callback(input.root.value);
+    //})
+
+    //input.on('keydown', event => {
+    //    event.stopPropagation();
+
+    //    //console.log(event.key);
+    //    if (event.key == 'Enter') {
+    //        event.preventDefault();
+    //    //    cli_mgr.process(input.value);
+    //    //    input.value = "";
+    //    //} else if (event.key == 'Tab') {
+    //    //    event.preventDefault();
+    //    //    console.log('qq tab');
+    //    }
+    //})
+
+    return input;
 }
 
 Toolbar.prototype.addLabel = function(text) {
