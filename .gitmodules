@@ -1,0 +1,3 @@
+[submodule "python2"]
+	path = python2
+	url = git@github.com:jjjj222/python2_util
