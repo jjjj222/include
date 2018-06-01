@@ -57,6 +57,8 @@ function NavbarBrand(text, href) {
     this.root.href = href
     this.root.textContent = text
     this.root.style.userSelect = "none";
+
+    this.root.dataset.testId = "navbar-brand";
 }
 
 //------------------------------------------------------------------------------
@@ -72,6 +74,7 @@ function FileInputForm(text, callback) {
     label.classList.add("navbar-text");
     label.textContent = "No file chosen";
     label.style.marginRight = "10px";
+    label.dataset.testId = "browse-file-input-label";
     this.root.appendChild(label);
 
     const btn = document.createElement("span");
@@ -80,6 +83,7 @@ function FileInputForm(text, callback) {
     btn.textContent = text;
     btn.style.overflow = "hidden";
     btn.style.position = "relative";
+    btn.dataset.testId = "browse-file-input-button";
     this.root.appendChild(btn);
 
 
